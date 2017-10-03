@@ -7,11 +7,9 @@
 using namespace std;
 
 class TextFile {
-private:
-	ifstream reader;
-	ofstream saver;
 public:
-	void ReadFromTextFile(string fileName, vector<int>& arr) {
+	static void ReadFromTextFile(string fileName, vector<int>& arr) {
+		ifstream reader;
 		reader.open(fileName);
 		string text;
 		vector<string> combineText;
@@ -40,14 +38,14 @@ public:
 		}
 		arr.pop_back();
 	}
-	void SaveToTextFile(string text) {
+	static void SaveToTextFile(string text) {
+		ofstream saver;
 		cout << "Funkcja jeszcze nie zaimplementowana";
 	}
 
 	static void Example() {
 		vector<int> myArray;
-		TextFile textFile;
-		textFile.ReadFromTextFile("Text.txt", myArray);
+		TextFile::ReadFromTextFile("Text.txt", myArray);
 		for (int i = 0,size=myArray.size(); i <size; i++)
 		{
 			cout << myArray[i] << " ";
